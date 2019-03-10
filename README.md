@@ -1,6 +1,6 @@
 # WebProject
 
-A Group Project which consists in creating the background of a Web using Django.
+Here there can be found some simple web projects.
 
 ## BangGoodWebClient.py
 
