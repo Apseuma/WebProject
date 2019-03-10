@@ -2,7 +2,7 @@
 
 Here there can be found some simple web projects.
 
-## BangGoodWebClient.py use
+## BangGoodWebClient.py requirements
 
 To scrape some data: namely the product name and both prices, offer and regular price,
 from the webpage, and print it (with the ultimate goal of using any
