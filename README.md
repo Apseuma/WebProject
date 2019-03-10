@@ -2,7 +2,7 @@
 
 Here there can be found some simple web projects.
 
-## BangGoodWebClient.py
+## BangGoodWebClient.py use
 
 To scrape some data: namely the product name and both prices, offer and regular price,
 from the webpage, and print it (with the ultimate goal of using any
@@ -18,4 +18,3 @@ It is a very simple code.
 
 ## Done by
 * Albert Planes - [Github: Apseuma](http://github.com/Apseuma)
-
