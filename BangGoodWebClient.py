@@ -16,34 +16,40 @@ class WebClient(object):
         f.close
         return page
 
-    def search_activities(self, page):
+    def get_offers(self, page):
+
         tree = bs4.BeautifulSoup(page,"lxml")
 
-        #ul = tree.find("ul", "goodlist_1")
-        #li = ul.find_all("li")
-        #act_list = []
-        #for item in li:
-        #   price = item.find("span","price").text
-        #   title = item.find("span","title").text
-        #   act_list.append((title, price))
-        #return act_list
+        ul = tree.find("ul", "goodlist_1")
+        li = ul.find_all("li")
+        offers = []
+        i = 1
 
-        activities = tree.find_all("span", "title")
-        act_list = []
-        i = 0
-        for activity in activities:
-            link = activity.find("a")
-            act_list.append((link["href"]))
+        for item in li:
+            offer = []
+            offer.append(i)
+            offer.append(item.find("span","title").text)
+            offer.append(item.find("span","price").text)
+            offer.append(item.find("span","price_old").text)
             i+=1
-            if i >= 5 :
-                break
-        return act_list
 
+            offers.append(offer)
+
+        return offers
+
+    def print_offers (self, offers):
+        for offer in offers:
+            print("OFFER NUMBER " + str(offer[0]) + ":" +
+                 "\nNOW YOU CAN BUY: " + offer[1] +
+                 "\nTHE PRICE IS JUST: " + offer[2] +
+                 "\nTHE PREVIOUS PRICE WAS: " + offer[3] + "\n")
 
     def run(self):
         page = self.download_page()
-        data = self.search_activities(page)
-        print (data)
+        offers = self.get_offers(page)
+        print("\n") #just aestethic
+        self.print_offers(offers)
+
 
 if __name__ == "__main__":
      c = WebClient()
